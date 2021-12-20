@@ -1,0 +1,6 @@
+requests
+requests_html
+yfinance
+paho-mqtt
+pandas
+TA-Lib

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}{% endblock %}
+</head>
+<body>
+<form action="/" method="POST">
+    <input type="text"name = "ticker_content" id ="ticker_content">
+    <input type="submit" value = "add Ticker">
+</form>
+<button onClick="sendToServer()">HIT</button>
+<button onClick ='breakQuery()'>Stop</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"></script>
+<script>
+    const socket = io.connect("http://localhost:8080");
+
+function sendToServer () {
+  socket.emit('message', document.getElementById('ticker_content').value);
+}
+
+socket.on("message", function(data) {
+        console.log(data)
+});
+</script>
+</body>
+</html>

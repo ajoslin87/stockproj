@@ -26,7 +26,7 @@ df = web.DataReader('GOLD', 'yahoo', start, end)
 
 tyme = df.index.values
 
-print(tyme)
+print (df['High'])
 
 
 close_px = df['Adj Close']
@@ -50,10 +50,10 @@ fig, ax = plt.subplots(figsize=(8,7))
 
 ax.set(title="Come on motherfucker!")
 
-# # # Adjusting the style of matplotlib
+# # # Adjusting the style of matplotlib 
 style.use('ggplot')
 
-ax.plot(close_px)
+ax.plot(tyme, close_px)
 
 def myFormatter(x, pos):
     newTime = pd.to_datetime(x)
@@ -61,13 +61,13 @@ def myFormatter(x, pos):
 
 
 # ax.get_xaxis().set_major_locator(mdates.YearLocator(, month=1, day=1))
-ax.get_xaxis().set_major_formatter(mpl.ticker.FuncFormatter(myFormatter))
+# ax.get_xaxis().set_major_formatter(mpl.ticker.FuncFormatter(myFormatter))
 # date_format = datetime.DateFormatter('%m, %d, %Y') 
-plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
+# plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
 
 
 
-# plt.gca().xaxis.set_major_formatter(date_format)
+plt.gca().xaxis.set_major_formatter(date_format)
 
 plt.show()
 

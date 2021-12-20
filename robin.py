@@ -10,6 +10,7 @@ def main():
     print('hello from main')
 
 @main.command()
+
 @click.argument('symbols', nargs=-1)
 def quote(symbols):
     quotes = rh.get_quotes(symbols)
@@ -32,7 +33,7 @@ def buy(quantity, symbol, limit):
         ui.success("buying {} of {} at {}".format(quantity, symbol, limit))
         result = rh.order_buy_limit(symbol, quantity, limit)
     else:
-        ui.sucess("buying {} of {} at {}".format(quantity,symbol))
+        ui.success("buying {} of {}".format(quantity,symbol))
         result = rh.order_buy_market(symbol,quantity)
 @main.command()
 def sell():
