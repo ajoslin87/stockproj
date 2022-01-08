@@ -33,7 +33,7 @@ def on_message(client, userdata, msg):
     master_topic = mqtt_topic[1]
     print(master_topic)
 
-mqttc = mqtt.Client("4e0c52019c6b46788ce6768949194d88")
+mqttc = mqtt.Client()
 mqttc.on_connect = on_connect
 mqttc.on_message = on_message
 mqttc.connect("broker.hivemq.com", 1883,60)
