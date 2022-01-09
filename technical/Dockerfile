@@ -1,6 +1,6 @@
 FROM python:3.9
 
-RUN pip install numpy jupyter matplotlib TA-Lib yfinance
+RUN pip install numpy jupyter matplotlib TA-Lib yfinance jupyterthemes
 
 #TA-Lib
 RUN wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz && \
