@@ -21,6 +21,6 @@ class Mqttcalls:
                 
                 json_hits= {ticker: hits}
 
-                print (json_hits)
+                print (type(data['Open']))
 
                 return json.dumps(json_hits)
